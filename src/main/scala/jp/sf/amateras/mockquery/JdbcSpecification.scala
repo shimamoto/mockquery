@@ -1,5 +1,7 @@
 package jp.sf.amateras.mockquery
 
+import scala.collection.JavaConversions._
+
 import org.specs2.mutable.Specification
 import org.specs2.specification.After
 
@@ -24,16 +26,21 @@ trait JdbcSpecification extends Specification {
       case e: VerifyFailedException => failure(e.getMessage)
     }
 
-  def debug(implicit m: JDBCTestModule) = {
-    import scala.collection.JavaConversions._
+  def debug(implicit m: JDBCTestModule) =
     m.getExecutedSQLStatements foreach { s =>
       println("[debug] %s" format s)
     }
-  }
 
   implicit def string2matchresult(sql: String): MatchResult = new MatchResult(sql)
   implicit def parametersForSql(sql: String) = new {
     def bind(params: Any*) = new MatchResult(sql, params:_*)
+    def returns(row: Any*)(implicit m: JDBCTestModule) = {
+      val handler = m.getPreparedStatementResultSetHandler
+      handler.setUseRegularExpressions(true)
+      val rs = handler.createResultSet
+      rs.addRow(row)
+      handler.prepareResultSet(sql, rs)
+    }
   }
 }
 
