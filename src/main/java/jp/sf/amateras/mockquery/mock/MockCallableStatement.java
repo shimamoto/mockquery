@@ -194,6 +194,11 @@ public class MockCallableStatement extends MockPreparedStatement implements Call
     {
         return getObject(parameterIndex);
     }
+    
+	public Object getObject(int parameterIndex, Class type) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     public byte getByte(int parameterIndex) throws SQLException
     {
@@ -494,6 +499,11 @@ public class MockCallableStatement extends MockPreparedStatement implements Call
     {
         return getObject(parameterName);
     }
+
+	public Object getObject(String parameterName, Class type) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
     
     public byte getByte(String parameterName) throws SQLException
     {
@@ -1007,7 +1017,7 @@ public class MockCallableStatement extends MockPreparedStatement implements Call
     {
         setObject(parameterName, object);
     }
-    
+
     private Map getOutParameterMap()
     {
         Map outParameter = resultSetHandler.getOutParameter(getSQL(), getParameterMap());

@@ -590,4 +590,14 @@ public class MockStatement implements Statement
         }
         return clonedResultsSets;
     }
+
+	public void closeOnCompletion() throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public boolean isCloseOnCompletion() throws SQLException {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

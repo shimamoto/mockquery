@@ -246,6 +246,11 @@ public class PolyResultSet implements ResultSet
         return current.getObject(columnIndex, map);
     }
     
+	public Object getObject(int columnIndex, Class type) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+    
     public String getString(String columnName) throws SQLException
     {
         return current.getString(columnName);
@@ -410,6 +415,11 @@ public class PolyResultSet implements ResultSet
     {
         return current.getObject(columnName, map);
     }
+    
+	public Object getObject(String columnLabel, Class type) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
     public SQLWarning getWarnings() throws SQLException
     {

@@ -19,6 +19,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.Executor;
 
 import jp.sf.amateras.mockquery.NestedApplicationException;
 import jp.sf.amateras.mockquery.CallableStatementResultSetHandler;
@@ -422,4 +423,30 @@ public class MockConnection implements Connection
     {
         throw new SQLException("No object found for " + iface);
     }
+
+	public void setSchema(String schema) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public String getSchema() throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void abort(Executor executor) throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setNetworkTimeout(Executor executor, int milliseconds)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getNetworkTimeout() throws SQLException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
