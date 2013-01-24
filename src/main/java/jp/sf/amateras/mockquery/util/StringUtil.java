@@ -369,6 +369,6 @@ public class StringUtil
         	source = source.toLowerCase();
         	target = target.toLowerCase();
         }
-        return Pattern.matches(target, source);
+        return Pattern.compile(target, Pattern.DOTALL).matcher(source).matches();
     }
 }
